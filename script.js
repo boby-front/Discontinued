@@ -10,29 +10,30 @@ searchInput.addEventListener("blur", function () {
   this.placeholder = "Saisissez votre texte...";
 });
 
-// Chargement des données depuis le fichier data.json
+// CHARGEMENT DES DONNES DEPUIS LE FICHIER DATA
+
 fetch("data.json")
   .then((response) => response.json())
   .then((data) => {
-    // Création des listes vides pour chaque catégorie
-    let voitureTypes = [];
-    let motoTypes = [];
-    let cinqZeroCCTypes = [];
+    // Création des ensembles vides pour chaque catégorie
+    const voitureTypes = new Set();
+    const motoTypes = new Set();
+    const cinqZeroCCTypes = new Set();
 
     // Parcours des données pour extraire les types de véhicules en fonction de leur catégorie
-    for (let i = 0; i < data.length; i++) {
-      const categorie = data[i].categorie;
-      const types = data[i].type;
+    data.forEach((item) => {
+      const categorie = item.categorie;
+      const types = item.type;
 
-      // Ajout du type de véhicule à la liste correspondante
+      // Ajout du type de véhicule à l'ensemble correspondant
       if (categorie === "Voiture") {
-        voitureTypes = voitureTypes.concat(types);
+        types.forEach((type) => voitureTypes.add(type));
       } else if (categorie === "Moto") {
-        motoTypes = motoTypes.concat(types);
+        types.forEach((type) => motoTypes.add(type));
       } else if (categorie === "50CC") {
-        cinqZeroCCTypes = cinqZeroCCTypes.concat(types);
+        types.forEach((type) => cinqZeroCCTypes.add(type));
       }
-    }
+    });
 
     // Intégration des types de véhicules dans les éléments de liste correspondants
     const voitureList = document.querySelector(".menu-voiture");
@@ -57,3 +58,95 @@ fetch("data.json")
     });
   })
   .catch((error) => console.log(error));
+
+// HOVER MENU DEROULANT
+
+// Voiture menu
+
+const carContainer = document.querySelector(".menu-car-container");
+const menuVoiture = document.querySelector(".menu-voiture");
+
+carContainer.addEventListener("mouseover", () => {
+  menuVoiture.style.display = "block";
+});
+
+carContainer.addEventListener("mouseleave", () => {
+  menuVoiture.style.display = "none";
+});
+
+menuVoiture.addEventListener("mouseenter", () => {
+  menuVoiture.style.display = "block";
+});
+
+menuVoiture.addEventListener("mouseleave", () => {
+  menuVoiture.style.display = "none";
+});
+
+// Moto menu
+
+const motoContainer = document.querySelector(".menu-moto-container");
+const menuMoto = document.querySelector(".menu-moto");
+
+motoContainer.addEventListener("mouseover", () => {
+  menuMoto.style.display = "block";
+  menuMoto.style.left = "50%";
+  menuMoto.style.transform = "translateX(-50%)";
+});
+
+motoContainer.addEventListener("mouseleave", () => {
+  menuMoto.style.display = "none";
+});
+
+menuMoto.addEventListener("mouseenter", () => {
+  menuMoto.style.display = "block";
+});
+
+menuMoto.addEventListener("mouseleave", () => {
+  menuMoto.style.display = "none";
+});
+
+// 50cc menu
+
+const cinqZeroCCContainer = document.querySelector(".menu-50cc-container");
+const menuCinqZeroCC = document.querySelector(".menu-50cc");
+
+cinqZeroCCContainer.addEventListener("mouseover", () => {
+  menuCinqZeroCC.style.display = "block";
+  menuCinqZeroCC.style.right = "0";
+});
+
+cinqZeroCCContainer.addEventListener("mouseleave", () => {
+  menuCinqZeroCC.style.display = "none";
+});
+
+menuCinqZeroCC.addEventListener("mouseenter", () => {
+  menuCinqZeroCC.style.display = "block";
+});
+
+menuCinqZeroCC.addEventListener("mouseleave", () => {
+  menuCinqZeroCC.style.display = "none";
+});
+
+// Amene a la page pieces.html
+
+const voitureMenuItems = document.querySelectorAll(".menu-voiture ");
+const motoMenuItems = document.querySelectorAll(".menu-moto ");
+const cinqZeroCCMenuItems = document.querySelectorAll(".menu-50cc ");
+
+voitureMenuItems.forEach((item) => {
+  item.addEventListener("click", () => {
+    window.location.href = "pieces.html";
+  });
+});
+
+motoMenuItems.forEach((item) => {
+  item.addEventListener("click", () => {
+    window.location.href = "pieces.html";
+  });
+});
+
+cinqZeroCCMenuItems.forEach((item) => {
+  item.addEventListener("click", () => {
+    window.location.href = "pieces.html";
+  });
+});
