@@ -15,6 +15,10 @@ searchInput.addEventListener("blur", function () {
 fetch("data.json")
   .then((response) => response.json())
   .then((data) => {
+    // Stockez les données dans la variable globale
+    localStorage.setItem("jsonData", JSON.stringify(data));
+    console.log(localStorage);
+
     // Création des ensembles vides pour chaque catégorie
     const voitureTypes = new Set();
     const motoTypes = new Set();
@@ -55,6 +59,32 @@ fetch("data.json")
       const liElement = document.createElement("li");
       liElement.textContent = type;
       cinqZeroCCList.appendChild(liElement);
+    });
+
+    // Amene sur les li sur la page pieces.html //
+    const voitureMenuItems = document.querySelectorAll(".menu-voiture li ");
+    const motoMenuItems = document.querySelectorAll(".menu-moto li");
+    const cinqZeroCCMenuItems = document.querySelectorAll(".menu-50cc li");
+
+    voitureMenuItems.forEach((item) => {
+      item.addEventListener("click", () => {
+        const type = item.textContent;
+        window.location.href = `pieces.html?type=${encodeURIComponent(type)}`;
+      });
+    });
+
+    motoMenuItems.forEach((item) => {
+      item.addEventListener("click", () => {
+        const type = item.textContent;
+        window.location.href = `pieces.html?type=${encodeURIComponent(type)}`;
+      });
+    });
+
+    cinqZeroCCMenuItems.forEach((item) => {
+      item.addEventListener("click", () => {
+        const type = item.textContent;
+        window.location.href = `pieces.html?type=${encodeURIComponent(type)}`;
+      });
     });
   })
   .catch((error) => console.log(error));
@@ -127,26 +157,4 @@ menuCinqZeroCC.addEventListener("mouseleave", () => {
   menuCinqZeroCC.style.display = "none";
 });
 
-// Amene a la page pieces.html
-
-const voitureMenuItems = document.querySelectorAll(".menu-voiture ");
-const motoMenuItems = document.querySelectorAll(".menu-moto ");
-const cinqZeroCCMenuItems = document.querySelectorAll(".menu-50cc ");
-
-voitureMenuItems.forEach((item) => {
-  item.addEventListener("click", () => {
-    window.location.href = "pieces.html";
-  });
-});
-
-motoMenuItems.forEach((item) => {
-  item.addEventListener("click", () => {
-    window.location.href = "pieces.html";
-  });
-});
-
-cinqZeroCCMenuItems.forEach((item) => {
-  item.addEventListener("click", () => {
-    window.location.href = "pieces.html";
-  });
-});
+// Ajouts des Cards-pieces //
