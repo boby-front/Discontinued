@@ -27,13 +27,13 @@
         "titre": "Cocottes de bracelets type MBK 51 CF",
         "type": ["type MBK 51 CF"],
         "description": "Associées à des guidonnets bottelin dumoulin qui sont très similaires aux guidonnets de 51 cf et 103 XG2 et se trouve fréquemment en occasion, ils permettent de recréer ces fameux bracelets de 51 cf ou de XG2. A noter que les guidonnets de cf sont également montés sur les 51 super blue mais très difficiles à trouver malheureusement.",
-        "image" : "/assets/images/50cc/Cocottes de bracelets type 51 cf(1).jpg"
+        "image" : "../assets/images/50cc/Cocottes de bracelets type 51 cf(1).jpg"
       }, {
         "categorie": "50CC",
         "titre": "Araignées de tête de fourche type MBK 51 CF",
         "type": ["type MBK 51 CF"],
         "description": " Ils nécessitent des tés de fourche paioli en 30mm de cf pour venir s’accrocher sur la fourche mais également des fixations noyées dans le tête de fourche comme à l’origine, livrées non peintes. Le montage nécessite de chauffer au chalumeau les pattes pour les déformer afin qu’elles s’emboitent parfaitement dans les fixations, ce travail est fastidieux et nous vous conseillons de peindre les araignées une fois le montage terminé.",
-        "image" : "/assets/images/50cc/Araignée de tête de fourche type 51.jpg"
+        "image" : "../assets/images/50cc/Araignée de tête de fourche type 51.jpg"
       },{
         "categorie": "50CC",
         "titre": "Mousse de selle type MBK 51 CF G2 85-87",
