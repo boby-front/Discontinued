@@ -67,21 +67,24 @@ fetch("data.json")
     const cinqZeroCCMenuItems = document.querySelectorAll(".menu-50cc li");
 
     voitureMenuItems.forEach((item) => {
-      item.addEventListener("click", () => {
+      item.addEventListener("click", (event) => {
+        event.preventDefault();
         const type = item.textContent;
         window.location.href = `pieces.html?type=${encodeURIComponent(type)}`;
       });
     });
 
     motoMenuItems.forEach((item) => {
-      item.addEventListener("click", () => {
+      item.addEventListener("click", (event) => {
+        event.preventDefault();
         const type = item.textContent;
         window.location.href = `pieces.html?type=${encodeURIComponent(type)}`;
       });
     });
 
     cinqZeroCCMenuItems.forEach((item) => {
-      item.addEventListener("click", () => {
+      item.addEventListener("click", (event) => {
+        event.preventDefault();
         const type = item.textContent;
         window.location.href = `pieces.html?type=${encodeURIComponent(type)}`;
       });

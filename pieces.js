@@ -25,7 +25,7 @@ function createCardAndRedirect(type) {
       card.classList.add("card");
 
       const image = document.createElement("img");
-      image.src = item.image; // Assurez-vous que la propriété "image" contient l'URL de l'image
+      image.src = item.image;
       card.appendChild(image);
 
       const title = document.createElement("h2");
@@ -36,14 +36,11 @@ function createCardAndRedirect(type) {
       description.textContent = item.description;
       card.appendChild(description);
 
-      const typeVehicule = document.createElement("h2");
-      typeVehicule.textContent = item.type;
-      typeVehicule.classList.add("card-type-word");
-      card.appendChild(typeVehicule);
-
-      const icon = document.createElement("i");
-      icon.classList.add("fa-solid", "fa-basket-shopping", "card-panier");
-      card.appendChild(icon);
+      const addToCart = document.createElement("p");
+      addToCart.innerHTML =
+        'Ajouter au panier <i class="fa-solid fa-basket-shopping"></i>';
+      addToCart.classList.add("card-panier");
+      card.appendChild(addToCart);
 
       piecesContainer.appendChild(card);
     });
