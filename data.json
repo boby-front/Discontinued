@@ -20,73 +20,73 @@
       },{
         "categorie": "50CC",
         "titre": "Cadre type XG2",
-        "type": ["type PEUGEOT 103 XG2"],
+        "type": ["PEUGEOT 103 XG2"],
         "description": "Refabrication en acier aux cotes exactes d'origine avec soudure de même type que l'époque. Nécessite le jeu de direction type XG2, la poulie type XG2 en axe de 12mm, le réservoir en fibre type XG2 ainsi que le bras fier type XG2. Numéroté selon la nomenclature d'époque. Livré nu sans bras oscillant",
         "image":["assets/images/50cc/Cadre type XG2.jpeg", "assets/images/50cc/Cadre type XG2.1.jpeg", "assets/images/50cc/Cadre type XG2.2.jpeg"]
       },{
         "categorie": "50CC",
         "titre": "Bras alu type fior",
-        "type": ["type PEUGEOT 103 XG2"],
+        "type": ["PEUGEOT 103 XG2"],
         "description": "Montage sur XG2 en axe 12mm ou sur spx/rcx en axe de 10mm. Précisez à la commande. Livré sans cales pieds",
         "image":["assets/images/50cc/Bras alu type fior.jpeg", "assets/images/50cc/Bras alu type fior1.jpeg", "assets/images/50cc/Bras alu type fior2.jpeg", "assets/images/50cc/Bras alu type fior3.png" ]
       },{
         "categorie": "50CC",
         "titre": "Cocottes de bracelets type MBK 51 CF",
-        "type": ["type MBK 51 CF"],
+        "type": ["MBK 51 CF"],
         "description": "Associées à des guidonnets bottelin dumoulin qui sont très similaires aux guidonnets de 51 cf et 103 XG2 et se trouve fréquemment en occasion, ils permettent de recréer ces fameux bracelets de 51 cf ou de XG2. A noter que les guidonnets de cf sont également montés sur les 51 super blue mais très difficiles à trouver malheureusement.",
         "image" : ["./assets/images/50cc/Cocottes de bracelets type 51 cf(1).jpg", "assets/images/50cc/Cocottes de bracelets type 51 cf.jpg", "assets/images/50cc/Cocottes de bracelets type 51 cf(2).jpg"]
       },{
         "categorie": "50CC",
         "titre": "Autocollants de fourche MICHELIN",
-        "type": ["type MBK 51 CF", "type PEUGEOT 103 XG2"],
+        "type": ["MBK 51 CF", "PEUGEOT 103 XG2"],
         "description": "Refabrication de très haute qualité. La paire",
         "image" : ["assets/images/50cc/Autocollants de fourche MICHELIN.png", "assets/images/50cc/Autocollants de fourche MICHELIN 1.png"]
       }, {
         "categorie": "50CC",
         "titre": "Araignées de tête de fourche type MBK 51 CF",
-        "type": ["type MBK 51 CF"],
+        "type": ["MBK 51 CF"],
         "description": " Ils nécessitent des tés de fourche paioli en 30mm de cf pour venir s’accrocher sur la fourche mais également des fixations noyées dans le tête de fourche comme à l’origine, livrées non peintes. Le montage nécessite de chauffer au chalumeau les pattes pour les déformer afin qu’elles s’emboitent parfaitement dans les fixations, ce travail est fastidieux et nous vous conseillons de peindre les araignées une fois le montage terminé.",
         "image" : ["./assets/images/50cc/Araignée de tête de fourche type 51.jpg", "assets/images/50cc/Araignée de tête de fourche type 51(bis).jpg"]
       },{
         "categorie": "50CC",
         "titre": "Mousse de selle type MBK 51 CF G2 85-87",
-        "type": ["type MBK 51 CF"],
+        "type": ["MBK 51 CF"],
         "description": "Refabrication française en caoutchouc identique à l’origine, les stries de surface sont respectées et la dureté et le brillant ont fait l’objet de nombreux essais pour être conforme à l’origine, un must have pour votre cf ou réplique",
         "image" : ["assets/images/50cc/Selle type 51 cf.jpg", "assets/images/50cc/Selle type 51 cf(bis).jpg"]
       },{
         "categorie": "50CC",
         "titre": "Arceaux type MBK 51 CF G2 85-87",
-        "type": ["type MBK 51 CF"],
+        "type": ["MBK 51 CF"],
         "description": "Montés sur les 51 cf g2 de 1985 à 1987, d’abord sans renfort supplémentaire coté vario puis avec pour protéger le pilote lors des chutes coté vario, ils sont identiques à l’origine mais nécessite d’avoir le support de béquille sur lequel ils viennent se fixer, livrés non peint.",
         "image" : ["assets/images/50cc/Arceaux type 51(bis).jpg", "assets/images/50cc/Arceaux type 51.jpg"]
       }, {
         "categorie": "50CC",
         "titre": "Pédale de lanceur type MBK 51 CF G2 85-87",
-        "type": ["type MBK 51 CF"],
+        "type": ["MBK 51 CF"],
         "description": "Pédale de lanceur type 51 cf 85-87, livré avec sa biellette qui vient se fixer sur les pattes de carter moteur de 51 standard, la 87 possède une patte sur laquelle vient se fixer le ressort moteur, nécessite de posséder le support béquille sur lequel vient de se fixer le corps de la pédale, perçage nécessaire.",
         "image" : "assets/images/50cc/Pédale de lanceur type 51 cf.jpg"
       }, {
         "categorie": "50CC",
         "titre": "Stickers frontaux et latéraux blancs type Mbk 51 cf.",
-        "type": ["type MBK 51 CF"],
+        "type": ["MBK 51 CF"],
         "description": "Refabrication de très haute qualité.",
         "image" : ["assets/images/50cc/Stickers 51 cf.png", "assets/images/50cc/Stickers 51 cf 1.png", "assets/images/50cc/Stickers 51 cf 2.png"]
       }, {
         "categorie": "50CC",
         "titre": "Stickers frontaux et latéraux type MBK 51 CF 88-89 ",
-        "type": ["type MBK 51 CF"],
+        "type": ["MBK 51 CF"],
         "description": "Sur grand carénage et coque. Refabrication de très haute qualité",
         "image" : ["assets/images/50cc/Stickers frontaux et latéraux type MBK 51 CF 88-89.png", "assets/images/50cc/Stickers frontaux et latéraux type MBK 51 CF 88-89  1.png"]
       }, {
         "categorie": "50CC",
         "titre": "Araignée de fixation de tête de fourche type MBK 51 CF 88-89 ",
-        "type": ["type MBK 51 CF"],
+        "type": ["MBK 51 CF"],
         "description": "Nécessite la patte de fixation soudée sur les cadres de 51 cf 88-89 à goulot long",
         "image" : ["assets/images/50cc/Araignée de fixation de tête de fourche type MBK 51 CF 88-89.png", "assets/images/50cc/Araignée de fixation de tête de fourche type MBK 51 CF 88-89 1.png"]
       }, {
         "categorie": "50CC",
         "titre": "Patte de fixation carénages type MBK 51 CF 88-89",
-        "type": ["type MBK 51 CF"],
+        "type": ["MBK 51 CF"],
         "description": "Nécessite le support de radiateur type 51 cf 85-89",
         "image" : ["assets/images/50cc/Patte de fixation carénages type MBK 51 CF 88-89.jpeg"]
       }

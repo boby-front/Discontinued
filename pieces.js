@@ -13,6 +13,17 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+function handleCarouselClick() {
+  let currentIndex = parseInt(this.dataset.index, 10);
+  const images = JSON.parse(this.dataset.images);
+
+  // Incrementer l'index et boucler si nécessaire
+  currentIndex = (currentIndex + 1) % images.length;
+
+  this.src = images[currentIndex];
+  this.dataset.index = currentIndex; // mise à jour de l'index stocké
+}
+
 function createCardAndRedirect(type) {
   const piecesContainer = document.getElementById("pieces-container");
   const jsonData = JSON.parse(localStorage.getItem("jsonData"));
@@ -24,38 +35,17 @@ function createCardAndRedirect(type) {
       const card = document.createElement("div");
       card.classList.add("card");
 
-      if (Array.isArray(item.image) && item.image.length > 1) {
-        const carousel = document.createElement("div");
-        carousel.classList.add("carousel");
+      const image = document.createElement("img");
+      if (Array.isArray(item.image)) {
+        image.src = item.image[0];
+        image.dataset.index = 0;
+        image.dataset.images = JSON.stringify(item.image);
 
-        const carouselImages = document.createElement("div");
-        carouselImages.classList.add("carousel-images");
-        const carouselBullets = document.createElement("div");
-        carouselBullets.classList.add("carousel-bullets");
-
-        item.image.forEach((imgSrc, index) => {
-          const image = document.createElement("img");
-          image.src = imgSrc;
-          carouselImages.appendChild(image);
-
-          // Création des bullet points
-          const bullet = document.createElement("span");
-          bullet.classList.add("carousel-bullet");
-          if (index === 0) {
-            bullet.classList.add("active");
-          }
-          carouselBullets.appendChild(bullet);
-        });
-
-        carousel.appendChild(carouselImages);
-        carousel.appendChild(carouselBullets);
-
-        card.appendChild(carousel);
+        image.addEventListener("click", handleCarouselClick);
       } else {
-        const image = document.createElement("img");
-        image.src = Array.isArray(item.image) ? item.image[0] : item.image;
-        card.appendChild(image);
+        image.src = item.image;
       }
+      card.appendChild(image);
 
       const title = document.createElement("h2");
       title.textContent = item.titre;
@@ -63,6 +53,7 @@ function createCardAndRedirect(type) {
 
       const description = document.createElement("p");
       description.textContent = item.description;
+      description.classList.add("description");
       card.appendChild(description);
 
       const addToCart = document.createElement("p");
@@ -76,29 +67,42 @@ function createCardAndRedirect(type) {
   }
 }
 
-//Caroussel gestion du click
+// MODALE
 
 document.addEventListener("click", function (event) {
-  if (event.target.closest(".carousel")) {
-    const carousel = event.target.closest(".carousel");
-    const currentImage = carousel.querySelector(
-      'img:not([style*="display: none"])'
-    );
-    const nextImage =
-      currentImage.nextElementSibling ||
-      carousel.querySelector("img:first-child");
+  if (event.target.closest(".card")) {
+    const cardContent = event.target.closest(".card").cloneNode(true);
+    const modalContent = document.getElementById("modal-content");
 
-    // Gestion des bullet points
-    const bullets = carousel.querySelectorAll(".carousel-bullet");
-    let currentBulletIndex = [...carousel.querySelectorAll("img")].indexOf(
-      currentImage
-    );
-    bullets[currentBulletIndex].classList.remove("active");
+    // Vider le contenu précédent de la modale
+    while (modalContent.firstChild) {
+      modalContent.removeChild(modalContent.firstChild);
+    }
 
-    currentBulletIndex = (currentBulletIndex + 1) % bullets.length;
-    bullets[currentBulletIndex].classList.add("active");
+    modalContent.appendChild(cardContent);
 
-    currentImage.style.display = "none";
-    nextImage.style.display = "block";
+    // Réattacher l'écouteur d'événements pour le carrousel
+    const modalImage = modalContent.querySelector("img");
+    if (modalImage && modalImage.dataset.images) {
+      modalImage.addEventListener("click", handleCarouselClick);
+    }
+
+    document.getElementById("modal").style.display = "flex";
+  }
+});
+
+document.addEventListener("click", function (event) {
+  const modal = document.getElementById("modal");
+
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+});
+
+document.addEventListener("keydown", function (event) {
+  const modal = document.getElementById("modal");
+
+  if (event.key === "Escape" && modal.style.display === "flex") {
+    modal.style.display = "none";
   }
 });
