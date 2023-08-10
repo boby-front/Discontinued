@@ -17,11 +17,14 @@ function handleCarouselClick() {
   let currentIndex = parseInt(this.dataset.index, 10);
   const images = JSON.parse(this.dataset.images);
 
-  // Incrementer l'index et boucler si nécessaire
   currentIndex = (currentIndex + 1) % images.length;
 
   this.src = images[currentIndex];
-  this.dataset.index = currentIndex; // mise à jour de l'index stocké
+  this.dataset.index = currentIndex;
+
+  const bullets = this.parentElement.querySelectorAll(".bullet");
+  bullets.forEach((bullet) => bullet.classList.remove("active"));
+  bullets[currentIndex].classList.add("active");
 }
 
 function createCardAndRedirect(type) {
@@ -40,8 +43,6 @@ function createCardAndRedirect(type) {
         image.src = item.image[0];
         image.dataset.index = 0;
         image.dataset.images = JSON.stringify(item.image);
-
-        image.addEventListener("click", handleCarouselClick);
       } else {
         image.src = item.image;
       }
@@ -67,33 +68,43 @@ function createCardAndRedirect(type) {
   }
 }
 
-// MODALE
-
 document.addEventListener("click", function (event) {
   if (event.target.closest(".card")) {
     const cardContent = event.target.closest(".card").cloneNode(true);
     const modalContent = document.getElementById("modal-content");
 
-    // Vider le contenu précédent de la modale
     while (modalContent.firstChild) {
       modalContent.removeChild(modalContent.firstChild);
     }
 
-    modalContent.appendChild(cardContent);
-
-    // Réattacher l'écouteur d'événements pour le carrousel
-    const modalImage = modalContent.querySelector("img");
+    const modalImage = cardContent.querySelector("img");
     if (modalImage && modalImage.dataset.images) {
       modalImage.addEventListener("click", handleCarouselClick);
+
+      // Check if bulletsContainer doesn't already exist
+      let bulletsContainer = cardContent.querySelector(".bullets-container");
+      if (!bulletsContainer) {
+        bulletsContainer = document.createElement("div");
+        bulletsContainer.classList.add("bullets-container");
+        const images = JSON.parse(modalImage.dataset.images);
+        images.forEach((img, index) => {
+          const bullet = document.createElement("span");
+          bullet.classList.add("bullet");
+          if (index === parseInt(modalImage.dataset.index, 10))
+            bullet.classList.add("active");
+          bulletsContainer.appendChild(bullet);
+        });
+        cardContent.insertBefore(bulletsContainer, modalImage.nextSibling); // Insert bulletsContainer after the modalImage
+      }
     }
 
+    modalContent.appendChild(cardContent);
     document.getElementById("modal").style.display = "flex";
   }
 });
 
 document.addEventListener("click", function (event) {
   const modal = document.getElementById("modal");
-
   if (event.target === modal) {
     modal.style.display = "none";
   }
@@ -101,7 +112,6 @@ document.addEventListener("click", function (event) {
 
 document.addEventListener("keydown", function (event) {
   const modal = document.getElementById("modal");
-
   if (event.key === "Escape" && modal.style.display === "flex") {
     modal.style.display = "none";
   }
